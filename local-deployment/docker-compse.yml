@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  # apache activemq-artemis
+  artemis:
+    container_name: artemis
+    # 1.0.11
+    image: quay.io/artemiscloud/activemq-artemis-broker-kubernetes@sha256:a4628c2591ec06caf21a3467f6e3faeaede7fa402b4f137d943b25b4dd4ad343
+    ports:
+      - "8161:8161"
+      - "61616:61616"
+      - "5672:5672"
+    environment:
+      AMQ_USER: doesnot
+      AMQ_PASSWORD: matter
+      AMQ_QUEUES: foo
+      AMQ_EXTRA_ARGS: --relax-jolokia
